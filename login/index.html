@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-circle blue-circle"></div>
+        <div class="shape shape-arrow">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="shape shape-triangle"></div>
+        <div class="shape shape-circle yellow-circle"></div>
+    </div>
+    <section class="login-container">
+        <div class="first-div">
+            <img src="../login/Asset/loginlogo.png" alt="login-logo" class="login-logo">
+            <h1>Welcome Back!</h1>
+            <p>Enter your details to access your account</p>
+        </div>
+        <div class="login-signup">
+            <a href="#" id="login" class="login-link">Login</a> 
+            <a href="../signup/signup.html" id="signin" class="signup-link">Sign Up</a>
+        </div>
+        <div class="input-section">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+        </div>
+        <div class="input-section">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+        </div>
+        <div class="help-nextstep">
+            <a href="#" class="help-link">? help</a>
+            <a href="#" class="next-link">Next step</a>
+        </div>
+        <footer class="footer">
+    <span class="terms-services">
+        By continuing, you agree to our 
+        <a href="#">Terms of Service</a> & 
+        <a href="#">Privacy Policy</a>
+    </span>
+    <p class="copyright">© 2024 TaskMaster | Made for University Students</p>
+</footer>
+    </section>
+    <script src="../login/login.js"></script>
+</body>
+</html>

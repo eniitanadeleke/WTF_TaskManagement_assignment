@@ -1,0 +1,265 @@
+body {
+    display: flex;
+    font-family: "Inter", sans-serif;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 30%;
+    max-width: 450px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.first-div {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-logo {
+    width: 100px;
+    margin-bottom: 5px;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 5px;
+    padding-top: 0;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+    padding-bottom: 20px;
+}
+
+.login-signup {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    background-color: #e5e3e3;
+    width: 90%;
+    margin-left: auto;      
+    margin-right: auto;     
+    padding: 5px;         
+}
+
+.login-link, .signup-link {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: black;
+    border-radius: 8px;                    
+    background-color: transparent;          
+    flex: 1;                              
+    text-align: center;                    
+    transition: all 0.3s ease;            
+    font-weight: 500;                      
+}
+
+.login-link.active, .signup-link.active {
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-section {
+    margin-bottom: 15px;
+    padding: 0 20px;        
+}
+
+.input-section label {
+    font-size: 14px;
+    color: #333;
+    display: block;         
+    margin-bottom: 5px;     
+    font-weight: 500;       
+}
+
+.input-section input {
+    width: 100%;            
+    padding: 12px;          
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;  
+}
+
+.input-section input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.help-nextstep {
+    display: flex;
+    justify-content: space-around;   
+    padding: 0 20px;                
+    margin-top: 20px;                 
+}
+
+.help-link, .next-link {
+    text-decoration: none;
+    color: rgb(19, 19, 19);
+    padding: 10px 30px;
+    border-radius: 10px;
+    transition: all 0.3s ease;        
+    font-weight: 500;                
+}
+
+.help-link {
+    background-color: rgb(210, 210, 210);
+}
+
+.help-link:hover {                   
+    background-color: rgb(190, 190, 190);
+}
+
+.next-link {
+    background-color: rgba(255, 200, 0, 0.913);
+    color: white;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 18px;
+}
+
+.terms-services {
+    font-size: 9px;
+    color: #666;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.terms-services a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.terms-services a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 14px;
+    color: #999;
+    margin: 0;
+}
+
+
+/* Background shapes container */
+.background-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    filter: blur(40px);
+    opacity: 0.6;
+}
+
+/* Blue circle - top left */
+.blue-circle {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.8), rgba(99, 102, 241, 0.2));
+    border-radius: 50%;
+    top: 10%;
+    left: 5%;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+/* Yellow circle - bottom right */
+.yellow-circle {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(255, 193, 7, 0.8), rgba(255, 193, 7, 0.2));
+    border-radius: 50%;
+    bottom: 10%;
+    right: 10%;
+    animation: pulse 3s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+/* Green arrow - top right */
+.shape-arrow {
+    top: 15%;
+    right: 15%;
+    filter: none;
+    opacity: 0.8;
+    animation: floatUpDown 3s ease-in-out infinite;
+}
+
+.shape-arrow svg {
+    width: 50px;
+    height: 50px;
+}
+
+/* Purple triangle - right middle */
+.shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-bottom: 140px solid rgba(147, 51, 234, 0.3);
+    filter: blur(30px);
+    top: 50%;
+    right: 20%;
+    animation: pulse 5s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes floatUpDown {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Make sure body has a light background */
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    position: relative;
+}
+
+
+
+
+@media (max-width: 760px) {
+    .login-container {        
+        width: 90%;
+    }
+    
+    .login-signup {
+        width: 90%;
+    }
+}
