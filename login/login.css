@@ -64,16 +64,6 @@ p {
     transition: all 0.3s ease;            
     font-weight: 500;                      
 }
-
-/* .login-link {
-    width: 40px;
-    height: 15px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px ;
-    padding-top: 2-xpx;
-    align-items: center;
-} */
-
 .login-link.active, .signup-link.active {
     background-color: #fff;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
