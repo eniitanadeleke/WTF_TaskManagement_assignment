@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskMaster Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="sidebar">
+      <!-- Top brand/logo row -->
+      <div class="sidebar-header">
+        <div class="logo-box">
+          <img
+            src="/Taskmanager/images/taskImage.png"
+            alt="TaskMaster logo"
+            class="logo-image"
+          />
+        </div>
+        <div class="logo-text">
+          <h1>TaskMaster</h1>
+        </div>
+
+        <!-- Collapse button -->
+        <button class="collapse-btn" aria-label="Toggle sidebar">
+          <span class="collapse-icon"></span>
+        </button>
+      </div>
+
+      <!-- User section -->
+      <div class="sidebar-profile">
+        <div class="avatar">E</div>
+        <div class="user-info">
+          <div class="user-name">eni</div>
+          <div class="user-email">enh@gmail.com</div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="sidebar-nav">
+        <a class="nav-item active" href="javascript:void(0);" onclick="loadContent('dashboard')">
+          <div class="nav-icon">
+            <img src="./images/icon-grid-active.svg" alt="Dashboard" />
+          </div>
+          <span class="nav-text">Dashboard</span>
+        </a>
+
+        <a class="nav-item" href="javascript:void(0);" onclick="loadContent('tasks')">
+          <div class="nav-icon">
+            <img src="./images/icon-check.svg" alt="Tasks"/>
+          </div>
+          <span class="nav-text">Tasks</span>
+        </a>
+
+        <a class="nav-item" href="javascript:void(0);" onclick="loadContent('community')">
+          <div class="nav-icon">
+            <img src="./images/icon-users.svg" alt="Community" />
+          </div>
+          <span class="nav-text">Community</span>
+        </a>
+
+        <a class="nav-item" href="javascript:void(0);" onclick="loadContent('expenses')">
+          <div class="nav-icon">
+            <img src="./images/icon-dollar (1).svg" alt="Expenses" />
+          </div>
+          <span class="nav-text">Expenses</span>
+        </a>
+
+        <a class="nav-item" href="javascript:void(0);" onclick="loadContent('notes')">
+          <div class="nav-icon">
+            <img src="./images/icon-document.svg" alt="Notes" />
+          </div>
+          <span class="nav-text">Notes</span>
+        </a>
+
+        <a class="nav-item" href="javascript:void(0);" onclick="loadContent('settings')">
+          <div class="nav-icon">
+            <img src="./images/icon-settings.svg" alt="Settings" />
+          </div>
+          <span class="nav-text">Settings</span>
+        </a>
+      </nav>
+
+      <button class="logout-btn">
+        <div class="logout-icon"></div>
+        <span class="logout-text">Logout</span>
+      </button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main id="main">
+      <!-- DASHBOARD SECTION -->
+      <section id="dashboard" class="content-section active">
+        <!-- Top greeting -->
+        <header class="main-header">
+          <h2 class="greeting-title">Good evening, eni!</h2>
+          <p class="greeting-subtitle">
+            Here's what's happening with your productivity today
+          </p>
+        </header>
+
+        <!-- Top stats cards -->
+        <section class="stats-grid">
+          <!-- Card 1: Active Tasks -->
+          <article class="stat-card">
+            <div class="stat-card-header">
+              <h3 class="stat-title">Active Tasks</h3>
+              <div class="stat-icon stat-icon-blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="stat-card-body">
+              <p class="stat-value" id="active-tasks-count">0</p>
+              <p class="stat-caption">0 completed</p>
+            </div>
+          </article>
+
+          <!-- Card 2: Total Expenses -->
+          <article class="stat-card">
+            <div class="stat-card-header">
+              <h3 class="stat-title">Total Expenses</h3>
+              <div class="stat-icon stat-icon-cyan">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 1V23M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="stat-card-body">
+              <p class="stat-value" id="total-expenses-amount">$0.00</p>
+              <p class="stat-caption">This period</p>
+            </div>
+          </article>
+
+          <!-- Card 3: Total Notes -->
+          <article class="stat-card">
+            <div class="stat-card-header">
+              <h3 class="stat-title">Total Notes</h3>
+              <div class="stat-icon stat-icon-green">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="stat-card-body">
+              <p class="stat-value" id="total-notes-count">0</p>
+              <p class="stat-caption">Saved notes</p>
+            </div>
+          </article>
+
+          <!-- Card 4: Completion Rate -->
+          <article class="stat-card">
+            <div class="stat-card-header">
+              <h3 class="stat-title">Completion Rate</h3>
+              <div class="stat-icon stat-icon-purple">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M22 12H18L15 21L9 3L6 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="stat-card-body">
+              <p class="stat-value" id="completion-rate">0%</p>
+              <p class="stat-caption">Task completion</p>
+            </div>
+          </article>
+        </section>
+
+        <!-- Bottom Grid: Recent Tasks + Quick Actions -->
+        <div class="dashboard-bottom-grid">
+          <!-- Recent Tasks Section -->
+          <section class="recent-tasks-section">
+            <div class="section-header">
+              <div class="section-icon-wrapper">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" stroke="#6366f1" stroke-width="2"/>
+                  <path d="M12 6V12L16 14" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="section-title">Recent Tasks</h3>
+            </div>
+            
+            <div class="empty-state">
+              <div class="empty-state-icon">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 11L12 14L22 4" stroke="#d1d5db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="#d1d5db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <p class="empty-state-text">No tasks yet</p>
+            </div>
+          </section>
+
+          <!-- Quick Actions Section -->
+          <section class="quick-actions-section">
+            <div class="section-header">
+              <div class="section-icon-wrapper">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3 class="section-title">Quick Actions</h3>
+            </div>
+
+            <div class="quick-actions-list">
+              <!-- Create Task Action -->
+              <div class="quick-action-card">
+                <div class="quick-action-icon quick-action-icon-blue">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="quick-action-content">
+                  <h4 class="quick-action-title">Create New Task</h4>
+                  <p class="quick-action-description">Add a task to your list</p>
+                </div>
+              </div>
+
+              <!-- Track Expense Action -->
+              <div class="quick-action-card">
+                <div class="quick-action-icon quick-action-icon-cyan">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 1V23M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="quick-action-content">
+                  <h4 class="quick-action-title">Track Expense</h4>
+                  <p class="quick-action-description">Record a new expense</p>
+                </div>
+              </div>
+
+              <!-- Write Note Action -->
+              <div class="quick-action-card">
+                <div class="quick-action-icon quick-action-icon-green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="quick-action-content">
+                  <h4 class="quick-action-title">Write Note</h4>
+                  <p class="quick-action-description">Capture your thoughts</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- OTHER SECTIONS (Placeholders) -->
+      <section id="tasks" class="content-section">
+         <!-- Task Management Header -->
+  <div class="task-management-header">
+    <div class="task-header-content">
+      <div class="task-header-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 11L12 14L22 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="task-header-text">
+        <h2 class="task-header-title">Task Management</h2>
+        <p class="task-header-subtitle">Manage and track your tasks</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Task Content Container -->
+  <div class="task-content-container">
+    <!-- Tab Navigation -->
+    <div class="task-tabs">
+      <button class="task-tab active" data-tab="my-tasks">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+          <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>My Tasks</span>
+      </button>
+      <button class="task-tab" data-tab="ai-summary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 3V21H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7 16L12 11L16 15L21 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>AI Summary</span>
+      </button>
+    </div>
+
+    <!-- Statistics and Add Task Button -->
+    <div class="task-stats-row">
+      <div class="task-stats">
+        <div class="task-stat-item">
+          <p class="task-stat-value" id="active-tasks-value">0</p>
+          <p class="task-stat-label">Active tasks</p>
+        </div>
+        <div class="task-stat-divider"></div>
+        <div class="task-stat-item">
+          <p class="task-stat-value task-stat-completed" id="completed-tasks-value">0</p>
+          <p class="task-stat-label">Completed</p>
+        </div>
+      </div>
+      <button class="add-task-btn" id="addTaskBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 5V19M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Add Task</span>
+      </button>
+    </div>
+
+    <!-- Task List Container -->
+    <div class="task-list-container" id="taskListContainer">
+      <!-- Empty State -->
+      <div class="task-empty-state" id="taskEmptyState">
+        <div class="task-empty-icon">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="#a5b4fc" stroke-width="1.5"/>
+            <path d="M9 12L11 14L15 10" stroke="#a5b4fc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="task-empty-title">No tasks yet</p>
+        <p class="task-empty-subtitle">Click "Add Task" to create your first task</p>
+      </div>
+
+      <!-- Task List (will be populated dynamically) -->
+      <div class="task-list" id="taskList">
+        <!-- Tasks will be added here dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Task Modal -->
+  <div class="task-modal" id="taskModal">
+    <div class="task-modal-overlay" id="taskModalOverlay"></div>
+    <div class="task-modal-content">
+      <div class="task-modal-header">
+        <h3>Create New Task</h3>
+        <button class="task-modal-close" id="closeModalBtn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <form class="task-form" id="taskForm">
+        <div class="form-group">
+          <label for="taskTitle">Task Title</label>
+          <input type="text" id="taskTitle" placeholder="Enter task title" required />
+        </div>
+        <div class="form-group">
+          <label for="taskDescription">Description (Optional)</label>
+          <textarea id="taskDescription" placeholder="Enter task description" rows="3"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="taskPriority">Priority</label>
+            <select id="taskPriority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="taskDueDate">Due Date (Optional)</label>
+            <input type="date" id="taskDueDate" />
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn-secondary" id="cancelTaskBtn">Cancel</button>
+          <button type="submit" class="btn-primary">Create Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+      </section>
+
+      <section id="community" class="content-section">
+        <h2>Community Section</h2>
+        <p>Community content will go here...</p>
+      </section>
+
+      <section id="expenses" class="content-section">
+        <h2>Expenses Section</h2>
+        <p>Expenses content will go here...</p>
+      </section>
+
+      <section id="notes" class="content-section">
+        <h2>Notes Section</h2>
+        <p>Notes content will go here...</p>
+      </section>
+
+      <section id="settings" class="content-section">
+        <h2>Settings Section</h2>
+        <p>Settings content will go here...</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
