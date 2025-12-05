@@ -4,12 +4,12 @@
   box-sizing: border-box;
 }
 
-/* All sections are hidden by default */
+
 .content-section {
   display: none;
 }
 
-/* Only the active section is displayed */
+
 .content-section.active {
   display: block;
 }
@@ -19,14 +19,13 @@ body {
   background-color: #f5f5f9;
 }
 
-/* Layout: sidebar + main */
 .dashboard-layout {
   display: grid;
   grid-template-columns: auto 1fr;
   min-height: 100vh;
 }
 
-/* SIDEBAR BASE */
+
 .sidebar {
   background-color: #ffffff;
   border-right: 1px solid #e5e7eb;
@@ -36,7 +35,7 @@ body {
   height: 100vh;
 }
 
-/* HEADER (logo + title + chevron) */
+
 .sidebar-header {
   display: flex;
   align-items: center;
@@ -54,8 +53,8 @@ body {
 }
 
 .logo-image {
-  width: 28px;
-  height: 28px;
+  width: 50x;
+  height: 50px;
   border-radius: 8px;
   object-fit: cover;
 }
@@ -81,7 +80,7 @@ body {
   border: 2px solid #9ca3af;
 }
 
-/* USER PROFILE AREA */
+
 .sidebar-profile {
   display: flex;
   align-items: center;
@@ -119,7 +118,7 @@ body {
   color: #6b7280;
 }
 
-/* NAVIGATION */
+
 .sidebar-nav {
   display: flex;
   flex-direction: column;
@@ -158,13 +157,13 @@ body {
   object-fit: contain;
 }
 
-/* active item */
+
 .nav-item.active {
   background-color: #eef0ff;
   color: #4f46e5;
 }
 
-/* LOGOUT at bottom */
+
 .logout-btn {
   margin-top: auto;
   border: none;
@@ -186,13 +185,13 @@ body {
   border: 1px solid #dc2626;
 }
 
-/* MAIN AREA */
+
 #main {
   padding: 32px 32px 40px;
   background-color: #f5f5f9;
 }
 
-/* Greeting */
+
 .main-header {
   margin-bottom: 24px;
 }
@@ -209,7 +208,6 @@ body {
   color: #6b7280;
 }
 
-/* Stats cards grid */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -228,7 +226,7 @@ body {
   justify-content: space-between;
 }
 
-/* Card header */
+
 .stat-card-header {
   display: flex;
   align-items: center;
@@ -242,7 +240,7 @@ body {
   color: #4b5563;
 }
 
-/* Icon container for cards */
+
 .stat-icon {
   width: 48px;
   height: 48px;
@@ -273,14 +271,13 @@ body {
   color: #7c3aed;
 }
 
-/* Image inside card icon */
+
 .stat-img {
   width: 95%;
   height: 95%;
   object-fit: contain;
 }
 
-/* Card body */
 .stat-card-body .stat-value {
   font-size: 28px;
   font-weight: 700;
@@ -293,14 +290,13 @@ body {
   color: #9ca3af;
 }
 
-/* BOTTOM GRID - Recent Tasks + Quick Actions */
+
 .dashboard-bottom-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 20px;
 }
 
-/* RECENT TASKS SECTION */
 .recent-tasks-section {
   background-color: #ffffff;
   border-radius: 16px;
@@ -309,7 +305,7 @@ body {
   border: 1px solid #e5e7eb;
 }
 
-/* QUICK ACTIONS SECTION */
+
 .quick-actions-section {
   background-color: #ffffff;
   border-radius: 16px;
@@ -318,7 +314,7 @@ body {
   border: 1px solid #e5e7eb;
 }
 
-/* Section Headers */
+
 .section-header {
   display: flex;
   align-items: center;
@@ -961,7 +957,7 @@ body {
   background-color: #e5e7eb;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 768px) {
   .task-stats-row {
     flex-direction: column;

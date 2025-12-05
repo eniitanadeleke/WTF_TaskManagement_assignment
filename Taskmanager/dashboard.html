@@ -8,9 +8,9 @@
 </head>
 <body>
   <div class="dashboard-layout">
-    <!-- SIDEBAR -->
+
     <aside id="sidebar" class="sidebar">
-      <!-- Top brand/logo row -->
+      
       <div class="sidebar-header">
         <div class="logo-box">
           <img
@@ -23,7 +23,6 @@
           <h1>TaskMaster</h1>
         </div>
 
-        <!-- Collapse button -->
         <button class="collapse-btn" aria-label="Toggle sidebar">
           <span class="collapse-icon"></span>
         </button>
@@ -38,7 +37,6 @@
         </div>
       </div>
 
-      <!-- Navigation -->
       <nav class="sidebar-nav">
         <a class="nav-item active" href="javascript:void(0);" onclick="loadContent('dashboard')">
           <div class="nav-icon">
@@ -89,11 +87,9 @@
       </button>
     </aside>
 
-    <!-- MAIN CONTENT -->
     <main id="main">
-      <!-- DASHBOARD SECTION -->
       <section id="dashboard" class="content-section active">
-        <!-- Top greeting -->
+      
         <header class="main-header">
           <h2 class="greeting-title">Good evening, eni!</h2>
           <p class="greeting-subtitle">
@@ -101,9 +97,9 @@
           </p>
         </header>
 
-        <!-- Top stats cards -->
+        
         <section class="stats-grid">
-          <!-- Card 1: Active Tasks -->
+        
           <article class="stat-card">
             <div class="stat-card-header">
               <h3 class="stat-title">Active Tasks</h3>
@@ -120,7 +116,7 @@
             </div>
           </article>
 
-          <!-- Card 2: Total Expenses -->
+          
           <article class="stat-card">
             <div class="stat-card-header">
               <h3 class="stat-title">Total Expenses</h3>
@@ -136,7 +132,7 @@
             </div>
           </article>
 
-          <!-- Card 3: Total Notes -->
+          
           <article class="stat-card">
             <div class="stat-card-header">
               <h3 class="stat-title">Total Notes</h3>
@@ -153,7 +149,7 @@
             </div>
           </article>
 
-          <!-- Card 4: Completion Rate -->
+          
           <article class="stat-card">
             <div class="stat-card-header">
               <h3 class="stat-title">Completion Rate</h3>
@@ -170,9 +166,9 @@
           </article>
         </section>
 
-        <!-- Bottom Grid: Recent Tasks + Quick Actions -->
+        
         <div class="dashboard-bottom-grid">
-          <!-- Recent Tasks Section -->
+          
           <section class="recent-tasks-section">
             <div class="section-header">
               <div class="section-icon-wrapper">
@@ -195,7 +191,7 @@
             </div>
           </section>
 
-          <!-- Quick Actions Section -->
+         
           <section class="quick-actions-section">
             <div class="section-header">
               <div class="section-icon-wrapper">
@@ -207,7 +203,7 @@
             </div>
 
             <div class="quick-actions-list">
-              <!-- Create Task Action -->
+              
               <div class="quick-action-card">
                 <div class="quick-action-icon quick-action-icon-blue">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -221,7 +217,7 @@
                 </div>
               </div>
 
-              <!-- Track Expense Action -->
+             
               <div class="quick-action-card">
                 <div class="quick-action-icon quick-action-icon-cyan">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -234,7 +230,7 @@
                 </div>
               </div>
 
-              <!-- Write Note Action -->
+             
               <div class="quick-action-card">
                 <div class="quick-action-icon quick-action-icon-green">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -252,9 +248,9 @@
         </div>
       </section>
 
-      <!-- OTHER SECTIONS (Placeholders) -->
+    
       <section id="tasks" class="content-section">
-         <!-- Task Management Header -->
+       
   <div class="task-management-header">
     <div class="task-header-content">
       <div class="task-header-icon">
@@ -270,9 +266,8 @@
     </div>
   </div>
 
-  <!-- Task Content Container -->
+ 
   <div class="task-content-container">
-    <!-- Tab Navigation -->
     <div class="task-tabs">
       <button class="task-tab active" data-tab="my-tasks">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -290,7 +285,7 @@
       </button>
     </div>
 
-    <!-- Statistics and Add Task Button -->
+    
     <div class="task-stats-row">
       <div class="task-stats">
         <div class="task-stat-item">
@@ -311,7 +306,7 @@
       </button>
     </div>
 
-    <!-- Task List Container -->
+   
     <div class="task-list-container" id="taskListContainer">
       <!-- Empty State -->
       <div class="task-empty-state" id="taskEmptyState">
@@ -325,14 +320,14 @@
         <p class="task-empty-subtitle">Click "Add Task" to create your first task</p>
       </div>
 
-      <!-- Task List (will be populated dynamically) -->
+    
       <div class="task-list" id="taskList">
-        <!-- Tasks will be added here dynamically -->
+       
       </div>
     </div>
   </div>
 
-  <!-- Add Task Modal -->
+
   <div class="task-modal" id="taskModal">
     <div class="task-modal-overlay" id="taskModalOverlay"></div>
     <div class="task-modal-content">
@@ -378,7 +373,7 @@
 
       <section id="community" class="content-section">
         <h2>Community Section</h2>
-        <p>Community content will go here...</p>
+        
       </section>
 
       <section id="expenses" class="content-section">
@@ -388,12 +383,12 @@
 
       <section id="notes" class="content-section">
         <h2>Notes Section</h2>
-        <p>Notes content will go here...</p>
+        <p></p>
       </section>
 
       <section id="settings" class="content-section">
         <h2>Settings Section</h2>
-        <p>Settings content will go here...</p>
+        <p></p>
       </section>
     </main>
   </div>

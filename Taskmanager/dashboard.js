@@ -1,49 +1,97 @@
-// Function to load content dynamically
-function loadContent(section) {
-  // Hide all sections
-  const allSections = document.querySelectorAll('.content-section');
-  allSections.forEach(section => {
-    section.classList.remove('active'); // Hide all sections
-  });
+// ============================================
+// AUTHENTICATION CHECK - Must be at the top!
+// ============================================
 
-  // Show the clicked section
-  const activeSection = document.getElementById(section);
-  activeSection.classList.add('active'); // Display the clicked section
+const isLoggedIn = localStorage.getItem('isLoggedIn');
 
-  // Update active state for sidebar links (optional)
-  updateActiveLink(section);
+if (!isLoggedIn || isLoggedIn !== 'true') {
+    alert('Please login first!');
+    window.location.href = '../login/index.html';
 }
 
-// Function to update active link in sidebar
-function updateActiveLink(section) {
-  const allLinks = document.querySelectorAll('.nav-item');
-  allLinks.forEach(link => {
-    if (link.innerText.toLowerCase() === section) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
+// Load user data
+const userName = localStorage.getItem('userName') || 'User';
+const userEmail = localStorage.getItem('userEmail') || 'user@example.com';
+
+console.log('User logged in:', userName);
+
+// ============================================
+// UPDATE USER INTERFACE WITH USER DATA
+// ============================================
+
+function updateUserProfile() {
+    const firstLetter = userName.charAt(0).toUpperCase();
+    
+    const avatar = document.querySelector('.avatar');
+    if (avatar) {
+        avatar.textContent = firstLetter;
     }
-  });
+    
+    const userNameElement = document.querySelector('.user-name');
+    if (userNameElement) {
+        userNameElement.textContent = userName;
+    }
+    
+    const userEmailElement = document.querySelector('.user-email');
+    if (userEmailElement) {
+        userEmailElement.textContent = userEmail;
+    }
+    
+    console.log('User profile updated:', userName, userEmail);
 }
 
-// Load the default content (Dashboard) when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-  loadContent('dashboard'); // Load Dashboard by default
-});
+function updateGreeting() {
+    const greetingTitle = document.querySelector('.greeting-title');
+    if (greetingTitle) {
+        const hour = new Date().getHours();
+        let greeting = 'Good evening';
+        
+        if (hour < 12) {
+            greeting = 'Good morning';
+        } else if (hour < 18) {
+            greeting = 'Good afternoon';
+        }
+        
+        greetingTitle.textContent = `${greeting}, ${userName}!`;
+    }
+}
 
+// ============================================
+// LOGOUT FUNCTIONALITY
+// ============================================
 
+function handleLogout() {
+    if (confirm('Are you sure you want to logout?')) {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('userEmail');
+        
+        console.log('User logged out');
+        window.location.href = '../login/index.html';
+    }
+}
 
+function setupLogoutButton() {
+    const logoutBtn = document.querySelector('.logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', handleLogout);
+        console.log('Logout button initialized');
+    }
+}
+
+// ============================================
+// CONTENT LOADING
+// ============================================
 
 function loadContent(section) {
   console.log('Loading section:', section);
   
-  // Hide all sections
   const allSections = document.querySelectorAll('.content-section');
-  allSections.forEach(sec => {  // Changed from 'section' to 'sec' to avoid conflict!
+  allSections.forEach(sec => {
     sec.classList.remove('active');
   });
 
-  // Show the clicked section
   const activeSection = document.getElementById(section);
   if (activeSection) {
     activeSection.classList.add('active');
@@ -52,11 +100,9 @@ function loadContent(section) {
     console.error('Section not found:', section);
   }
 
-  // Update active state for sidebar links
   updateActiveLink(section);
 }
 
-// Function to update active link in sidebar
 function updateActiveLink(section) {
   const allLinks = document.querySelectorAll('.nav-item');
   allLinks.forEach(link => {
@@ -69,7 +115,6 @@ function updateActiveLink(section) {
   });
 }
 
-// Function to toggle sidebar collapse
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
   if (sidebar) {
@@ -78,13 +123,11 @@ function toggleSidebar() {
 }
 
 // ============================================
-// TASK MANAGEMENT FUNCTIONS
+// TASK MANAGEMENT
 // ============================================
 
-// Task storage
 let tasks = [];
 
-// Load tasks from localStorage
 function loadTasksFromStorage() {
   const storedTasks = localStorage.getItem('taskmaster_tasks');
   if (storedTasks) {
@@ -100,13 +143,11 @@ function loadTasksFromStorage() {
   }
 }
 
-// Save tasks to localStorage
 function saveTasksToStorage() {
   localStorage.setItem('taskmaster_tasks', JSON.stringify(tasks));
   console.log('Tasks saved:', tasks.length);
 }
 
-// Open task modal
 function openTaskModal() {
   const taskModal = document.getElementById('taskModal');
   if (taskModal) {
@@ -118,7 +159,6 @@ function openTaskModal() {
   }
 }
 
-// Close task modal
 function closeTaskModal() {
   const taskModal = document.getElementById('taskModal');
   const taskForm = document.getElementById('taskForm');
@@ -135,12 +175,10 @@ function closeTaskModal() {
   console.log('Modal closed');
 }
 
-// Generate unique ID
 function generateId() {
   return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
 
-// Create task object
 function createTask(title, description, priority, dueDate) {
   return {
     id: generateId(),
@@ -153,7 +191,6 @@ function createTask(title, description, priority, dueDate) {
   };
 }
 
-// Add new task
 function addTask(e) {
   e.preventDefault();
   
@@ -188,7 +225,6 @@ function addTask(e) {
   console.log('Task added:', newTask);
 }
 
-// Toggle task completion
 function toggleTaskCompletion(taskId) {
   const task = tasks.find(t => t.id === taskId);
   if (task) {
@@ -200,7 +236,6 @@ function toggleTaskCompletion(taskId) {
   }
 }
 
-// Delete task
 function deleteTask(taskId) {
   if (confirm('Are you sure you want to delete this task?')) {
     const taskIndex = tasks.findIndex(t => t.id === taskId);
@@ -214,7 +249,6 @@ function deleteTask(taskId) {
   }
 }
 
-// Format date
 function formatDate(dateString) {
   if (!dateString) return '';
   const date = new Date(dateString);
@@ -222,7 +256,6 @@ function formatDate(dateString) {
   return date.toLocaleDateString('en-US', options);
 }
 
-// Render tasks
 function renderTasks() {
   const taskList = document.getElementById('taskList');
   const taskEmptyState = document.getElementById('taskEmptyState');
@@ -278,21 +311,18 @@ function renderTasks() {
   console.log('Tasks rendered successfully');
 }
 
-// Update task statistics
 function updateTaskStats() {
   const activeTasks = tasks.filter(t => !t.completed).length;
   const completedTasks = tasks.filter(t => t.completed).length;
   
   console.log('Updating stats - Active:', activeTasks, 'Completed:', completedTasks);
   
-  // Update tasks page stats
   const activeTasksValue = document.getElementById('active-tasks-value');
   const completedTasksValue = document.getElementById('completed-tasks-value');
   
   if (activeTasksValue) activeTasksValue.textContent = activeTasks;
   if (completedTasksValue) completedTasksValue.textContent = completedTasks;
   
-  // Update dashboard stats
   const dashboardActiveCount = document.getElementById('active-tasks-count');
   const dashboardCompletionRate = document.getElementById('completion-rate');
   
@@ -311,13 +341,42 @@ function updateTaskStats() {
   }
 }
 
+function showTaskList() {
+  const container = document.getElementById('taskListContainer');
+  if (container && !document.getElementById('taskList')) {
+    location.reload();
+  }
+}
+
+function showAISummary() {
+  const container = document.getElementById('taskListContainer');
+  if (container) {
+    container.innerHTML = `
+      <div class="task-empty-state" style="display: flex;">
+        <div class="task-empty-icon">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 3V21H21" stroke="#a5b4fc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7 16L12 11L16 15L21 10" stroke="#a5b4fc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="task-empty-title">AI Summary Coming Soon</p>
+        <p class="task-empty-subtitle">Get intelligent insights about your tasks</p>
+      </div>
+    `;
+  }
+}
+
 // ============================================
-// INITIALIZATION
+// INITIALIZE ON PAGE LOAD
 // ============================================
 
-// Load the default content when the page loads
 document.addEventListener('DOMContentLoaded', function() {
   console.log('=== TaskMaster Initializing ===');
+  
+  // Update user profile and greeting
+  updateUserProfile();
+  updateGreeting();
+  setupLogoutButton();
   
   // Load Dashboard by default
   loadContent('dashboard');
@@ -356,8 +415,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (addTaskBtn) {
     addTaskBtn.addEventListener('click', openTaskModal);
     console.log('Add task button initialized');
-  } else {
-    console.warn('Add task button not found - probably on a different page');
   }
   
   if (closeModalBtn) {
@@ -409,31 +466,3 @@ document.addEventListener('DOMContentLoaded', function() {
   
   console.log('=== TaskMaster Initialization Complete ===');
 });
-
-// Show task list (restore from AI summary)
-function showTaskList() {
-  const container = document.getElementById('taskListContainer');
-  if (container && !document.getElementById('taskList')) {
-    // Need to reload if structure was replaced
-    location.reload();
-  }
-}
-
-// Show AI summary
-function showAISummary() {
-  const container = document.getElementById('taskListContainer');
-  if (container) {
-    container.innerHTML = `
-      <div class="task-empty-state" style="display: flex;">
-        <div class="task-empty-icon">
-          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 3V21H21" stroke="#a5b4fc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M7 16L12 11L16 15L21 10" stroke="#a5b4fc" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <p class="task-empty-title">AI Summary Coming Soon</p>
-        <p class="task-empty-subtitle">Get intelligent insights about your tasks</p>
-      </div>
-    `;
-  }
-}

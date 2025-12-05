@@ -155,7 +155,6 @@ p {
 }
 
 
-/* Background shapes container */
 .background-shapes {
     position: fixed;
     top: 0;
@@ -173,7 +172,7 @@ p {
     opacity: 0.6;
 }
 
-/* Blue circle - top left */
+
 .blue-circle {
     width: 200px;
     height: 200px;
@@ -184,7 +183,7 @@ p {
     animation: pulse 4s ease-in-out infinite;
 }
 
-/* Yellow circle - bottom right */
+
 .yellow-circle {
     width: 50px;
     height: 50px;
@@ -196,7 +195,7 @@ p {
     animation-delay: 1s;
 }
 
-/* Green arrow - top right */
+
 .shape-arrow {
     top: 15%;
     right: 15%;
@@ -210,7 +209,7 @@ p {
     height: 50px;
 }
 
-/* Purple triangle - right middle */
+
 .shape-triangle {
     width: 0;
     height: 0;
@@ -224,7 +223,7 @@ p {
     animation-delay: 2s;
 }
 
-/* Animations */
+
 @keyframes pulse {
     0%, 100% {
         opacity: 0.6;
@@ -245,7 +244,6 @@ p {
     }
 }
 
-/* Make sure body has a light background */
 body {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     position: relative;
