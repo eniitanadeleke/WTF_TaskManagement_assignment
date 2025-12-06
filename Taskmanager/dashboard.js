@@ -1,6 +1,4 @@
-// ============================================
-// AUTHENTICATION CHECK - Must be at the top!
-// ============================================
+
 
 const isLoggedIn = localStorage.getItem('isLoggedIn');
 
@@ -9,15 +7,12 @@ if (!isLoggedIn || isLoggedIn !== 'true') {
     window.location.href = '../login/index.html';
 }
 
-// Load user data
 const userName = localStorage.getItem('userName') || 'User';
 const userEmail = localStorage.getItem('userEmail') || 'user@example.com';
 
 console.log('User logged in:', userName);
 
-// ============================================
-// UPDATE USER INTERFACE WITH USER DATA
-// ============================================
+
 
 function updateUserProfile() {
     const firstLetter = userName.charAt(0).toUpperCase();
@@ -56,9 +51,7 @@ function updateGreeting() {
     }
 }
 
-// ============================================
-// LOGOUT FUNCTIONALITY
-// ============================================
+
 
 function handleLogout() {
     if (confirm('Are you sure you want to logout?')) {
@@ -80,9 +73,7 @@ function setupLogoutButton() {
     }
 }
 
-// ============================================
-// CONTENT LOADING
-// ============================================
+//function to load content
 
 function loadContent(section) {
   console.log('Loading section:', section);
@@ -122,9 +113,7 @@ function toggleSidebar() {
   }
 }
 
-// ============================================
-// TASK MANAGEMENT
-// ============================================
+
 
 let tasks = [];
 
@@ -366,29 +355,26 @@ function showAISummary() {
   }
 }
 
-// ============================================
-// INITIALIZE ON PAGE LOAD
-// ============================================
+//initinlize dashboard
 
 document.addEventListener('DOMContentLoaded', function() {
   console.log('=== TaskMaster Initializing ===');
   
-  // Update user profile and greeting
+  //upodate profile and greetings
   updateUserProfile();
   updateGreeting();
   setupLogoutButton();
   
-  // Load Dashboard by default
+ //this will load dashboard by default
   loadContent('dashboard');
   
-  // Setup sidebar collapse button
   const collapseBtn = document.querySelector('.collapse-btn');
   if (collapseBtn) {
     collapseBtn.addEventListener('click', toggleSidebar);
     console.log('Collapse button initialized');
   }
   
-  // Setup quick action cards
+ // This will setupo quick action cards
   const quickActionCards = document.querySelectorAll('.quick-action-card');
   if (quickActionCards.length > 0) {
     quickActionCards.forEach((card, index) => {
@@ -434,7 +420,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Task form initialized');
   }
   
-  // Setup task tabs
+ 
   const taskTabs = document.querySelectorAll('.task-tab');
   if (taskTabs.length > 0) {
     taskTabs.forEach(tab => {
@@ -453,10 +439,10 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Task tabs initialized');
   }
   
-  // Load tasks from storage
+ //This will load tasks from local storage
   loadTasksFromStorage();
   
-  // Setup ESC key to close modal
+//excape key
   document.addEventListener('keydown', function(e) {
     const taskModal = document.getElementById('taskModal');
     if (e.key === 'Escape' && taskModal && taskModal.classList.contains('active')) {

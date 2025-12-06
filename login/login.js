@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
         console.log('Registered users:', registeredUsers.length);
         
-        // Find matching user
+        // find user that mathches email and password
         const user = registeredUsers.find(u => u.email === email && u.password === password);
         
         if (user) {
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return user;
         }
         
-        // Demo account for testing
+        // testing the account
         if (email === 'demo@taskmaster.com' && password === 'demo123') {
             console.log('Demo user logged in');
             return {
